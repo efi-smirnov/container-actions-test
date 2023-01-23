@@ -5,7 +5,7 @@ FROM python:3.11-slim-buster
 COPY ./requirements.txt .
 
 # update image and install curl
-RUN apt update && apt add curl -y
+RUN apt update && apt install curl -y
 
 # Install the Python dependencies
 RUN pip install -r requirements.txt
