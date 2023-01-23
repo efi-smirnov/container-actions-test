@@ -12,7 +12,8 @@ jobs:
         run: |
           cd .github/actions/my-action
           docker build -t my-container-registry/my-action:latest .
-        with:
-          MY_NAME: World
+
       - name: Run python script
         run: python python.py ${{ inputs.MY_NAME }}
+        with:
+          MY_NAME: World
