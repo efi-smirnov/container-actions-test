@@ -5,7 +5,7 @@ FROM python:3.11-slim-buster
 COPY ./requirements.txt .
 
 # update image and install curl
-RUN apk update && apk add --no-cache curl -y
+RUN apt update && apt add --no-cache curl -y
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
