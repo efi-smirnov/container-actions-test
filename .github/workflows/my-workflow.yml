@@ -2,18 +2,6 @@ name: My Workflow
 
 on: [push]
 
-inputs:
-  # getting the value of a variable called MY_NAME.
-  # Variable will be set in the workflow that runs this action.
-  MY_NAME:
-    description: "Who to greet"
-    required: true
-    default: "World"
-
-branding:
-  icon: "mic"
-  color: "purple"
-
 jobs:
   my-job:
     runs-on: ubuntu-latest
@@ -24,5 +12,9 @@ jobs:
         run: |
           cd .github/actions/my-action
           docker build -t my-container-registry/my-action:latest .
+      - name: My Action
+        uses: my-container-registry/my-action:latest
+        with:
+          MY_NAME: World
       - name: Run python script
         run: python python.py ${{ inputs.MY_NAME }}
