@@ -13,7 +13,4 @@ jobs:
           cd .github/actions/my-action
           docker build -t my-container-registry/my-action:latest .
       - name: Run python script
-        uses: ./python.py
-        with:
-          MY_NAME: World
-        run: python python.py ${{ inputs.MY_NAME }}
+        run: python python.py World
